@@ -6,7 +6,7 @@
 html,body{
     margin: 0px;
     padding: 0px;
-    background-image: url("public/assets/img/backgrund.png");
+    background-image: url("/public/assets/img/backgrund.png");
     background-attachment: fixed;
     background-size: 160px;
     font-family: "Josefin Sans", sans-serif;
