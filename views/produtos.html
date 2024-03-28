@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/532df4697a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/css/stylePaginaProfutos.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/script.js" defer></script>
+    <script src="/assets/js/avaliacao.js" defer></script>
+    <script src="/assets/js/enviarAvaliacao.js" defer></script>
+    <title>Bunny</title>
+</head>
+<body>
+    <div class="menu-lateral">
+        <div class="fechar-menu"><i class="fa-solid fa-xmark"></i></div>
+        <div class="menu-lateral-produto">
+            <h4>Menu</h4>
+            <nav class="conteudo-menu-lateral">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="instagem.com" target="_blank">Instagram</a></li>
+                    <li><a href="#" target="_blank">Site</a></li>
+                    <li><a href="#" target="_blank">Whatszap</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="logo">
+            <img src="/assets/img/logo.png" alt="">
+        </div>
+    </div>
+    <header class="cabecalho">
+        <div class="logo-principal">
+            <a href="/"><img src="/assets/img/logo.png" alt=""></a>
+        </div>
+        <nav class="cabecalho-menu">
+            <div class="input-Pesquisa">
+                
+                <input type="text" name="pesquisa" id="pesquisa">
+            </div>
+            <div class="icones" onclick="abrirPesquisa()">
+                <label for="pesquisa"><i  class="fa-solid fa-magnifying-glass"></i></label>
+                
+            <div>
+        </nav>
+    </header>
+    <i id="abrir-menu" class="fa-solid fa-chevron-right"></i>
+    <main class="conteudo-principal">
+        
+        <div class="img-produtos">
+            <div class="img-p" id="img1">
+                <img src="/assets/img/FundoEx.png" alt="">
+            </div>
+            <div class="img-p" id="img2">
+                <img src="/assets/img/FundoEx.png" alt="">
+            </div>
+        </div>
+        <div class="informacoes-produto">
+            <h2>Nome pedido</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur autem ratione laboriosam molestias! Distinctio aspernatur dolor, doloribus excepturi consequuntur deleniti odio quo ratione sapiente dolorem? Voluptate nam mollitia distinctio asperiores.</p>
+        </div>
+
+        <div class="conteiner-avaliacao">
+            <div class="fazer-avaliacao">
+                <h2 class="h2-txt-avaliacao">Fazer avaliação</h2>
+                <div class="area-avaliacao" id="input-comentario">
+                    <label for="Comtentario">Comtentario</label>
+                    <textarea name="Comtentario" id="Comtentario" cols="33" rows="10"></textarea>
+                </div>
+                <div class="area-avaliacao" id="input-nome">
+                    <label for="Comtentario">Nome</label>
+                    <input type="text">
+                </div>
+                <div class="area-avaliacao" id="nota-avaliacao">
+                    <label for="Comtentario">Avaliacao</label>
+                    <div class="notas">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_1">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_2">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_3">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_4">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_5">
+                    </div>
+                </div>
+                <button class="btn_enviar">Enviar</button>
+            </div>
+        </div>
+        
+        <div class="conteiner-comentarios">
+            <h1>Comentarios</h1>
+            <div class="comentarios">
+                <div class="comentario-feito">
+                    <h2>Nome cliente</h2>
+                    <div class="avaliacao-feita">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_5">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_2">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_1">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_3">
+                        <img src="/assets/img/semAvaliacao.png" alt="" class="imagem_avaliacao" id="img_4">
+                    </div>
+                    <div class="descricao-feita">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae eligendi, iure quam tenetur temporibus, culpa et rerum deserunt placeat natus, dolor pariatur dolores vero nesciunt minus quod dignissimos cum.</p>
+                    </div>
+                </div>
+                <div class="comentario-feito">
+                    <h2>Nome cliente</h2>
+                    <div class="avaliacao-feita">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_5">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_1">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_2">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_3">
+                        <img src="/assets/img/semAvaliacao.png" alt="" class="imagem_avaliacao" id="img_4">
+                    </div>
+                    <div class="descricao-feita">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae eligendi, iure quam tenetur temporibus, culpa et rerum deserunt placeat natus, dolor pariatur dolores vero nesciunt minus quod dignissimos cum.</p>
+                    </div>
+                </div>
+                <div class="comentario-feito">
+                    <h2>Nome cliente</h2>
+                    <div class="avaliacao-feita">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_5">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_1">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_2">
+                        <img src="/assets/img/avaliacao1.png" alt="" class="imagem_avaliacao" id="img_3">
+                        <img src="/assets/img/semAvaliacao.png" alt="" class="imagem_avaliacao" id="img_4">
+                    </div>
+                    <div class="descricao-feita">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae eligendi, iure quam tenetur temporibus, culpa et rerum deserunt placeat natus, dolor pariatur dolores vero nesciunt minus quod dignissimos cum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<script src="script.js"></script>
+</body>
+</html>

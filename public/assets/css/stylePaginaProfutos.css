@@ -1,0 +1,127 @@
+
+.conteudo-principal{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.img-produtos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.img-p{
+    background-color: #ffffff;
+    padding: 5px;
+    border-radius: 20px;
+    
+}
+#img1 img{
+    width: 140px;
+    border: 5px solid #e4d01e;
+    border-radius: 20px;
+}
+#img2 img{
+   width: 185px;
+   border: 5px solid #e4d01e;
+   border-radius: 20px;
+}
+.informacoes-produto{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+}
+.informacoes-produto h2{
+    text-align: center;
+}
+.informacoes-produto p{
+    text-align: justify;
+}
+
+.conteiner-avaliacao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fazer-avaliacao{
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 10px;
+    gap: 10px;
+    width: 370px;
+    flex-direction: column;
+    text-align: center;
+}
+.fazer-avaliacao label{
+    color: #000000;
+}
+.area-avaliacao{
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+}
+
+#input-nome{
+    justify-content: space-between;
+}
+#input-nome input{
+    width: 245px;
+}
+#nota-avaliacao{
+    display: flex;
+    align-items: center;
+}
+.notas{
+    display: flex;
+}
+.notas img{
+    width:55px ;
+}
+.btn_enviar{
+    margin: 20px;
+    border: 2px solid #ff0000;
+    border-radius: 20px;
+    background-color: #e7d212;
+    font-size: 1.1em;
+}
+.btn_enviar:hover{
+    transform: scale(0.9);
+    transition: ease 0.5s;
+    box-shadow: 4px 2px black;
+}
+
+.conteiner-comentarios{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding: 5px;
+}
+.comentarios{
+    display: flex;
+    flex-direction: column;
+    
+}
+.comentario-feito{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap:20px;
+    border-top: 2px solid white;
+}
+.comentario-feito h2{
+    margin-top: 10px;
+}
+.avaliacao-feita{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 370px;
+    border-radius: 10px;
+}
+.avaliacao-feita img{
+    width: 70px;
+}
+.h2-txt-avaliacao{
+    color: #ff0000;
+    padding: 10px;
+}

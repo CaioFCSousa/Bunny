@@ -1,0 +1,210 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+
+html,body{
+    margin: 0px;
+    padding: 0px;
+    background-image: url("/assets/img/backgrund.png");
+    background-attachment: fixed;
+    background-size: 160px;
+    font-family: "Josefin Sans", sans-serif;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.conteiner{
+    display: flex;
+    
+    
+}
+/*Cabecalho*/
+.cabecalho,.menu-lateral,.conteudo-principal{
+    color: #ffffff;
+}
+
+.logo-principal img{
+    width: 80px;
+
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: end;
+    padding: 10px;
+    
+}
+.titulo{
+    font-size: 2.6em;
+    font-weight: 100;
+}
+.cabecalho-menu{
+    font-size: 1.2em;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 30px;
+    
+}
+.icones i{
+    cursor: pointer;
+    font-size: 1.3em;
+    margin: 0px;
+    padding: 0px;
+}
+
+.input-Pesquisa{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 5px;
+    transition: ease-out 0.5s; 
+}
+
+.input-Pesquisa input{
+
+    border-radius: 10px;
+    padding:4px;
+    border: 1px solid #4e4e6d;
+}
+/*Menu lateral*/
+.menu-lateral{
+    display: none;
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left:0px ;
+    padding: 20px;
+    padding-right: 100px;
+    border-right: 1px solid #37374b;
+    height: 100%;
+    background-color: #e4d01e;
+    transition: ease-in-out 0.6s;
+}
+.menu-lateral-produto{
+    margin-bottom: 250px;
+    margin-top: 90px;
+}
+.conteudo-menu-lateral{
+    margin-top: 70px;
+    
+}
+.conteudo-menu-lateral ul{
+    list-style: none;
+    transition: ease-in-out 0.6s;
+    
+}
+.conteudo-menu-lateral ul li{
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.menu-lateral-produto h4{
+    font-size: 1.3em;
+    text-shadow: 1px 1px 1px black;
+}
+
+.conteudo-menu-lateral a{
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+.conteudo-menu-lateral a:hover{
+    border-bottom: 1px solid #ffffff;
+    width: 80px;
+    transition: 0.2s ease;
+}
+.logo{
+    position: fixed;
+    margin-top: 360px;
+}
+.logo img{
+    width: 65px;
+    
+}
+
+/*Conteudo PrincipL*/
+.conteudo-principal{
+    margin-top: 10px;
+}
+.h1-produto{
+    padding: 5px;
+    border-bottom: 3px solid #e4d01e;
+    width: 170px;
+}
+.conteiner-produtos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px ;
+    justify-content: space-around;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+.paginaproduto{
+    text-decoration: none;
+}
+.produto{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 140px;
+    padding: 10px;
+    border-radius: 20px;
+}
+#fundo{
+    display: flex;
+    justify-content: center;
+}
+#fundo img{
+    width: 140px;
+    border-radius: 20px;
+    border: 5px solid #e4d01e;
+}
+.informacao{
+    display: flex;
+    flex-direction: column;
+}
+.informacao h4{
+    margin-top: 10px;
+    color: #1f1e1c;
+    font-weight: 700;
+}
+.avaliacao{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.avaliacao img{
+    width: 50px;
+}
+.avaliacao h4{
+    color: #d82020;
+    font-size: 1.4em;
+    text-shadow: 1px 1px 1px black;
+    
+}
+/* Menu */
+
+.fechar-menu{
+    display: flex;
+    padding: 10px;
+    font-size: 2em;
+    cursor: pointer;
+}
+#abrir-menu{
+    position: fixed;
+    color: #e4d01e;
+    text-shadow:2px 1px 0px black;
+    margin: 0px;
+    font-size: 2em;
+    margin-top: 250px;
+    cursor: pointer;
+}
+#abrir-menu{
+    display: flex;
+}
