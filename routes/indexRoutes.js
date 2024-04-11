@@ -7,7 +7,7 @@ const produtoController = require('../controllers/produtoController');
 
 
 // Rota para a página inicial
-router.get('/', indexController.getIndexData);
+router.get('/produtos', indexController.getIndexData);
 router.get('/produto/:id', produtoController.renderProductPage);
 
 module.exports = router;
