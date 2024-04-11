@@ -1,0 +1,84 @@
+
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://kit.fontawesome.com/532df4697a.js" crossorigin="anonymous"></script>
+    <script src="/assets/js/script.js" defer></script>
+    <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
+    <title>Bunny</title>
+</head>
+<body>
+    <div class="menu-lateral">
+        <div class="fechar-menu"><i class="fa-solid fa-xmark"></i></div>
+        <div class="menu-lateral-produto">
+            <h4>Menu</h4>
+            <nav class="conteudo-menu-lateral">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="instagem.com" target="_blank">Instagram</a></li>
+                    <li><a href="#" target="_blank">Site</a></li>
+                    <li><a href="#" target="_blank">WhatsApp</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="logo">
+            <img src="/assets/img/logo.png" alt="">
+        </div>
+    </div>
+    <header class="cabecalho">
+        <div class="logo-principal">
+            <a href="/"><img src="/assets/img/logo.png" alt=""></a>
+        </div>
+        <nav class="cabecalho-menu">
+            <div class="input-Pesquisa">
+                
+                <input type="text" name="pesquisa" id="pesquisa">
+            </div>
+            <div class="icones">
+                <label for="pesquisa"><i  class="fa-solid fa-magnifying-glass"></i></label>
+            <div>
+        </nav>
+    </header>
+    <i id="abrir-menu" class="fa-solid fa-chevron-right"></i>
+    <main class="conteudo-principal">
+        <h1 class="h1-produto">Produtos</h1>
+        <div class="conteiner-produtos">
+            <% produtos.forEach(produto => { %>
+                <div class="produto">
+                    <a href="/produto/<%= produto._id %>" id="link_produto">
+                        <h2 class="nome-produto"><%= produto.nome %></h2>
+                        <img src="<%= produto.imagem1 %>" id="img_produto" alt="Imagem do Produto" style="width: 140px; height: 140px;">
+                        <div class="notas-produtos" id="notas_produto_<%= produto._id %>">
+                            <img src="/assets/img/avaliação_cora.png" alt="">
+                            <h4>Calculando...</h4> <!-- Exibir mensagem enquanto a média das notas está sendo calculada -->
+                        </div>
+                    </a>
+                </div>
+            <% }); %>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const produtos = document.querySelectorAll('.produto');
+            produtos.forEach(async produto => {
+                const produtoId = produto.querySelector('a').getAttribute('href').split('/').pop();
+                const response = await fetch(`/api/produtos/${produtoId}/media-notas`);
+                const data = await response.json();
+                const notasDiv = document.getElementById(`notas_produto_${produtoId}`);
+                if (data.mediaNotas) {
+                    notasDiv.innerHTML = `<img src="/assets/img/avaliação_cora.png" alt=""><h4>${data.mediaNotas.toFixed(1)}</h4>`;
+                } else {
+                    notasDiv.innerHTML = '<h4>0.0</h4>';
+                    notasDiv.innerHTML = '<img src="/assets/img/avaliação_cora.png" alt=""><h4>0.0</h4>';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -6,7 +6,7 @@
 html,body{
     margin: 0px;
     padding: 0px;
-    
+    background-image: url('../img/backgrund.png');
     background-attachment: fixed;
     background-size: 160px;
     font-family: "Josefin Sans", sans-serif;
@@ -133,9 +133,19 @@ html,body{
     margin-top: 10px;
 }
 .h1-produto{
+    margin-top: 15px;
+    margin-bottom: 20px;
     padding: 5px;
     border-bottom: 3px solid #e4d01e;
     width: 170px;
+}
+#link_produto{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    color: black;
+    gap: 10px;
 }
 .conteiner-produtos{
     display: flex;
@@ -144,6 +154,7 @@ html,body{
     justify-content: space-around;
     margin-bottom: 50px;
     margin-top: 20px;
+   
 }
 .paginaproduto{
     text-decoration: none;
@@ -152,41 +163,31 @@ html,body{
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
-    width: 140px;
+    width: 150px;
     padding: 10px;
     border-radius: 20px;
+    justify-content: space-around;
+   
 }
-#fundo{
-    display: flex;
-    justify-content: center;
-}
-#fundo img{
+
+#img_produto{
     width: 140px;
     border-radius: 20px;
+   
     border: 5px solid #e4d01e;
 }
-.informacao{
+.notas-produtos{
     display: flex;
-    flex-direction: column;
-}
-.informacao h4{
-    margin-top: 10px;
-    color: #1f1e1c;
-    font-weight: 700;
-}
-.avaliacao{
-    display: flex;
+    width: 100%;
     align-items: center;
-    justify-content: flex-end;
+    gap: 10px;
 }
-.avaliacao img{
+.notas-produtos img{
     width: 50px;
 }
-.avaliacao h4{
-    color: #d82020;
-    font-size: 1.4em;
-    text-shadow: 1px 1px 1px black;
-    
+.notas-produtos h4{
+    font-size: 1.3em;
+    margin-top: 10px;
 }
 /* Menu */
 
@@ -206,5 +207,8 @@ html,body{
     cursor: pointer;
 }
 #abrir-menu{
-    display: flex;
+   text-align: left;
+}
+.nome-produto{
+    word-wrap:break-word;
 }

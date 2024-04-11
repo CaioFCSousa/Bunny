@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/stylecreateProduct.css">
+    <title>Adicionar, Visualizar, Editar e Excluir Produtos</title>
+    <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
+</head>
+<body>
+    <h1>Adicionar, Visualizar, Editar e Excluir Produtos</h1>
+    <h2>Adicionar Produto:</h2>
+    <form id="form-adicionar-produto">
+        <label for="nome">Nome do Produto:</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" required></textarea>
+        <label for="imagem1">URL da Imagem 1:</label>
+        <input type="text" id="imagem1" name="imagem1" required>
+        <label for="imagem2">URL da Imagem 2:</label>
+        <input type="text" id="imagem2" name="imagem2" required>
+        <button type="submit">Adicionar Produto</button>
+    </form>
+
+    <h2>Produtos Adicionados:</h2>
+    <ul id="lista-produtos"></ul>
+
+    <!-- Formulário de Edição de Produto -->
+    <div id="form-editar-produto" style="display: none;">
+        <h2>Editar Produto</h2>
+        <form id="form-editar">
+            <label for="edit-nome">Nome do Produto:</label>
+            <input type="text" id="edit-nome" name="nome" required>
+            <label for="edit-descricao">Descrição:</label>
+            <textarea id="edit-descricao" name="descricao" required></textarea>
+            <label for="edit-imagem1">URL da Imagem 1:</label>
+            <input type="text" id="edit-imagem1" name="imagem1" required>
+            <label for="edit-imagem2">URL da Imagem 2:</label>
+            <input type="text" id="edit-imagem2" name="imagem2" required>
+            <input type="hidden" id="edit-id" name="id">
+            <div class="btns-edits">
+                <button type="submit">Salvar Alterações</button>
+                <button type="button" onclick="cancelarEdicao()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            carregarProdutos();
+        });
+    
+        document.getElementById('form-adicionar-produto').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const descricao = document.getElementById('descricao').value;
+            const imagem1 = document.getElementById('imagem1').value;
+            const imagem2 = document.getElementById('imagem2').value;
+    
+            try {
+                const response = await axios.post('/api/produtos', {
+                    nome: nome,
+                    descricao: descricao,
+                    imagem1: imagem1,
+                    imagem2: imagem2
+                });
+                alert('Produto adicionado com sucesso!');
+                carregarProdutos(); // Recarregar a lista de produtos após adicionar um novo produto
+            } catch (error) {
+                console.error('Erro ao adicionar produto:', error);
+                alert('Erro ao adicionar produto. Verifique o console para mais detalhes.');
+            }
+        });
+    
+        async function carregarProdutos() {
+            try {
+                const response = await axios.get('/api/produtos');
+                const produtos = response.data;
+                const listaProdutos = document.getElementById('lista-produtos');
+                listaProdutos.innerHTML = ''; // Limpar a lista de produtos antes de adicionar os novos
+                produtos.forEach(produto => {
+                    const li = document.createElement('li');
+                    const linkDetalhes = document.createElement('a');
+                    const linkProduto = document.createElement('a');
+                    linkDetalhes.href = `produto/${produto._id}/comentarios`;
+                    linkProduto.href = `http://192.168.18.72:3000/produto/${produto._id}`;
+                    // Altera o href para a rota de visualização de comentários
+                    linkDetalhes.textContent = produto.nome;
+                    li.appendChild(linkDetalhes);
+    
+                    const btnEditar = document.createElement('button');
+                    const div = document.createElement('div')
+                    // Botão de edição
+                    btnEditar.textContent = 'Editar';
+                    btnEditar.addEventListener('click', () => {
+                        preencherFormularioEdicao(produto); // Preenche o formulário de edição com os dados do produto
+                    });
+                    li.appendChild(btnEditar);
+    
+                    const btnExcluir = document.createElement('button');
+                    btnExcluir.textContent = 'Excluir';
+                    btnExcluir.addEventListener('click', async () => {
+                        if (confirm('Deseja realmente excluir este produto?')) {
+                            try {
+                                await axios.delete(`/api/produtos/${produto._id}`);
+                                alert('Produto excluído com sucesso!');
+                                carregarProdutos(); // Recarregar a lista de produtos após excluir um produto
+                            } catch (error) {
+                                console.error('Erro ao excluir produto:', error);
+                                alert('Erro ao excluir produto. Verifique o console para mais detalhes.');
+                            }
+                        }
+                    });
+                    li.appendChild(btnExcluir);
+    
+                    const btnGerarQRCode = document.createElement('button');
+                    btnGerarQRCode.textContent = 'Gerar QR Code';
+                    btnGerarQRCode.addEventListener('click', () => {
+                        gerarEbaixarQRCode(linkProduto.href);
+                    });
+                    li.appendChild(btnGerarQRCode);
+    
+                    listaProdutos.appendChild(li);
+
+                });
+            } catch (error) {
+                console.error('Erro ao carregar produtos:', error);
+                alert('Erro ao carregar produtos. Verifique o console para mais detalhes.');
+            }
+        }
+    
+        function preencherFormularioEdicao(produto) {
+            document.getElementById('edit-nome').value = produto.nome;
+            document.getElementById('edit-descricao').value = produto.descricao;
+            document.getElementById('edit-imagem1').value = produto.imagem1;
+            document.getElementById('edit-imagem2').value = produto.imagem2;
+            document.getElementById('edit-id').value = produto._id;
+            document.getElementById('form-editar-produto').style.display = 'block';
+        }
+    
+        function cancelarEdicao() {
+            document.getElementById('form-editar-produto').style.display = 'none';
+        }
+    
+        function gerarEbaixarQRCode(url) {
+            const qrcode = new QRCode(document.createElement('div'), {
+                text: url,
+                width: 256,
+                height: 256,
+            });
+            const link = document.createElement('a');
+            link.download = 'qrcode.png';
+            link.href = qrcode._el.firstChild.toDataURL("image/png");
+            link.click();
+        }
+    </script>
+   
+</body>
+</html>

@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     gap: 35px;
+    border-bottom: 2px solid white;
+    margin-bottom: 10px;
 }
 .img-produtos{
     display: flex;
@@ -30,29 +32,30 @@
     flex-direction: column;
     gap: 15px;
     padding: 10px;
+    width: 90%;
 }
 .informacoes-produto h2{
     text-align: center;
 }
 .informacoes-produto p{
-    text-align: justify;
+    word-wrap: break-word;
 }
-
 .conteiner-avaliacao{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+
 }
-.fazer-avaliacao{
+#form-enviar-avaliacao{
     display: flex;
     background-color: #ffffff;
     border-radius: 10px;
     gap: 10px;
     width: 370px;
     flex-direction: column;
-    text-align: center;
+    margin: auto;
 }
-.fazer-avaliacao label{
+#form-enviar-avaliacao label{
     color: #000000;
 }
 .area-avaliacao{
@@ -60,12 +63,15 @@
     padding: 10px;
     gap: 10px;
 }
+.area-avaliacao img{
+    width: 45px;
+}
 
 #input-nome{
     justify-content: space-between;
 }
 #input-nome input{
-    width: 245px;
+    width: 252px;
 }
 #nota-avaliacao{
     display: flex;
@@ -90,33 +96,29 @@
     box-shadow: 4px 2px black;
 }
 
-.conteiner-comentarios{
+.comentarios-lista{
     display: flex;
     flex-direction: column;
     gap:20px;
     padding: 5px;
 }
-.comentarios{
+.comentario{
     display: flex;
     flex-direction: column;
     
 }
-.comentario-feito{
+.comentario{
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    gap:20px;
+    gap:15px;
     border-top: 2px solid white;
+    padding: 10px;
 }
-.comentario-feito h2{
-    margin-top: 10px;
-}
-.avaliacao-feita{
+
+#avaliacao-feita{
     display: flex;
+    color: #000000;
     align-items: center;
-    background-color: white;
-    width: 370px;
-    border-radius: 10px;
 }
 .avaliacao-feita img{
     width: 70px;
@@ -124,4 +126,38 @@
 .h2-txt-avaliacao{
     color: #ff0000;
     padding: 10px;
+}
+#comentario-text{
+    word-wrap: break-word;
+}
+#descricao-produto, .comentario p#comentario-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#descricao-produto.expandido, .comentario p#comentario-text.expandido {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+}
+.ver-mais{
+    width: 100px;
+    border: none;
+    background-color: #00000000;
+    padding: 0px;
+    color: #ffffff;
+    border-bottom: 2px solid wheat;
+}
+.avaliacao{
+    display: flex;
+    align-items: center;
+    width: 350px;
+    background-color: #e7d212;
+    border-radius: 10px;
+    padding: 2px;
+    gap: 20px;
+}
+.avaliacao img{
+    width: 50px;
 }

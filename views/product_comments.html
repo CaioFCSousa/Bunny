@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/product_comments.css">
+    <title>Comentários do Produto</title>
+</head>
+<body>
+    <h1>Comentários do Produto</h1>
+    
+    <!-- Div para exibir os comentários -->
+    <div id="comentarios"></div>
+
+    <script>
+        // Função para carregar e exibir os comentários do produto
+        async function carregarComentarios() {
+            try {
+                // Obter o ID do produto a partir do caminho da URL
+                const produtoId = window.location.pathname.split('/')[2];
+                
+                // Requisição para obter os comentários do produto
+                const response = await fetch(`/api/produtos/${produtoId}/comentarios`);
+                const comentarios = await response.json();
+
+                // Limpar a área de comentários
+                const areaComentarios = document.getElementById('comentarios');
+                areaComentarios.innerHTML = '';
+
+                // Verificar se há comentários
+                if (comentarios.length === 0) {
+                    const semComentarios = document.createElement('p');
+                    semComentarios.textContent = 'Ainda não há comentários para este produto.';
+                    areaComentarios.appendChild(semComentarios);
+                } else {
+                    // Exibir os comentários
+                    comentarios.forEach(comentario => {
+                        const comentarioElement = document.createElement('div');
+                        comentarioElement.innerHTML = `
+                            <h3>${comentario.nome}</h3>
+                            <p>${comentario.comentario}</p>
+                            <p>Nota: ${comentario.nota}</p>
+                            <button onclick="excluirComentario('${comentario._id}')">Excluir</button>
+                        `;
+                        areaComentarios.appendChild(comentarioElement);
+                    });
+                }
+            } catch (error) {
+                console.error('Erro ao carregar comentários:', error);
+                alert('Erro ao carregar comentários. Verifique o console para mais detalhes.');
+            }
+        }
+
+        // Função para excluir um comentário
+        async function excluirComentario(comentarioId) {
+            try {
+                const confirmacao = confirm('Tem certeza de que deseja excluir este comentário?');
+                if (!confirmacao) {
+                    return;
+                }
+
+                const response = await fetch(`/api/comentarios/${comentarioId}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    // Recarregar os comentários após a exclusão
+                    carregarComentarios();
+                } else {
+                    console.error('Erro ao excluir comentário:', response.statusText);
+                    alert('Erro ao excluir comentário. Verifique o console para mais detalhes.');
+                }
+            } catch (error) {
+                console.error('Erro ao excluir comentário:', error);
+                alert('Erro ao excluir comentário. Verifique o console para mais detalhes.');
+            }
+        }
+
+        // Chamar a função para carregar os comentários quando a página for carregada
+        document.addEventListener('DOMContentLoaded', carregarComentarios);
+    </script>
+</body>
+</html>

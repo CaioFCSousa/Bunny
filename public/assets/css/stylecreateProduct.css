@@ -1,0 +1,68 @@
+#form-adicionar-produto{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#form-adicionar-produto button{
+    padding: 10px;
+    width: 300px;
+}
+#form-adicionar-produto input{
+    padding: 10px;
+    font-size: 1.3em;
+}
+
+#descricao{
+    padding: 10px;
+    height: 100px;
+    font-size: 1.2em;
+}
+
+#form-editar{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#form-editar button{
+    padding: 10px;
+    width: 300px;
+}
+#form-editar input{
+    padding: 10px;
+    font-size: 1.3em;
+}
+#edit-descricao{
+    padding: 10px;
+    height: 100px;
+    font-size: 1.2em;
+}
+
+
+.btns-edit{
+    display: flex;
+}
+
+#lista-produtos{
+    display: flex;
+    border-top: 1px solid black;
+    padding: 20px;
+    flex-direction: column;
+   list-style: none;
+}
+#lista-produtos li{
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    gap: 10px;
+}
+#lista-produtos li a{
+    width: 100vw;
+    font-size: 1.2em;
+    color: black;
+    text-decoration: none;
+}
+#lista-produtos li button{
+    width: 260px;
+    height: 40px;
+}
