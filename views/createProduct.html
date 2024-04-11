@@ -85,7 +85,7 @@
                     const linkDetalhes = document.createElement('a');
                     const linkProduto = document.createElement('a');
                     linkDetalhes.href = `produto/${produto._id}/comentarios`;
-                    linkProduto.href = `http://192.168.18.72:3000/produto/${produto._id}`;
+                    linkProduto.href = `/produto/${produto._id}`;
                     // Altera o href para a rota de visualização de comentários
                     linkDetalhes.textContent = produto.nome;
                     li.appendChild(linkDetalhes);

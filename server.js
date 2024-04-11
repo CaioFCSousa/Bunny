@@ -35,7 +35,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Rotas
-app.use('/produtos', indexRoutes);
+app.use('/', indexRoutes);
 app.use('/api/produtos', produtoRoutes);
 app.use('/api/comentarios', comentarioRoutes);
 app.use('/auth', authRoutes);
