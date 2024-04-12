@@ -114,7 +114,8 @@ exports.carregarComentarios = async (req, res) => {
 exports.createProduto = async (req, res) => {
     try {
         const { nome, descricao, imagem1, imagem2 } = req.body;
-        const novoProduto = await Produto.create({ nome, descricao, imagem1, imagem2 });
+        const novoProduto = await Produto.create({ nome, descricao, imagem1, imagem2 }).maxTimeMS(30000);
+
         res.status(201).json(novoProduto);
     } catch (error) {
         console.error('Erro ao criar produto:', error);

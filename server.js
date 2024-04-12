@@ -16,30 +16,14 @@ const authRoutes = require('./routes/authRoutes');
 const app = express();
 const { MongoClient } = require("mongodb");
 
-const dbName = "<site>";
-const collName = "<comentarios>";
 
-const uri = `mongodb+srv://caiofernandocardoso6:BaGHeEtMlFePRs6B@cluster0.axatgck.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
-// Cliente MongoDB
-const client = new MongoClient(uri);
-
-async function run() {
-  try {
-    await client.connect();
-    console.log("Conexão com MongoDB estabelecida");
-
-    const database = client.db(dbName);
-    const collection = database.collection(collName);
-
-    // Exemplo: buscar todos os documentos na coleção
-    const cursor = collection.find();
-    await cursor.forEach(doc => console.dir(doc));
-
-  } finally {
-    await client.close();
-  }
-}
+mongoose.connect('mongodb+srv://caiofernandocardoso6:BaGHeEtMlFePRs6B@cluster0.axatgck.mongodb.net/<site>?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log('Conexão com MongoDB estabelecida'))
+.catch(err => console.error('Erro ao conectar ao MongoDB:', err));
 
 
 app.set('view engine', 'ejs');
