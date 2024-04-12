@@ -15,29 +15,29 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://caiofernandocardoso6:<Acpsmc531@>@bunny-cluster.iy7o9mi.mongodb.net/";
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+const { MongoClient } = require('mongodb');
+
+// Substitua <username> e <password> pelos valores reais do nome de usuário e senha
+const username = encodeURIComponent("caiofernandocardoso6");
+const password = encodeURIComponent("Acpsmc531");
+const cluster = "bunny-cluster.iy7o9mi.mongodb.net";
+const dbName = "<bunny-cluster>";
+
+const uri = `mongodb+srv://${username}:${password}@${cluster}/${dbName}?retryWrites=true&w=majority`;
+
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    console.log("Conexão com MongoDB estabelecida");
+
+    // Se necessário, adicione aqui suas operações no banco de dados
+
   } finally {
-    // Ensures that the client will close when you finish/error
     await client.close();
   }
 }
-run().catch(console.dir);
 
 run().catch(console.dir);
 
