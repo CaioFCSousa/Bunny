@@ -18,7 +18,7 @@ const { MongoClient } = require("mongodb");
 
 // Configurações para conexão com o MongoDB
 
-const uri = "mongodb+srv://caiofernandocardoso6:<password>@cluster0.axatgck.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://caiofernandocardoso6:<BaGHeEtMlFePRs6B>@cluster0.axatgck.mongodb.net/";
 
 // Cliente MongoDB
 const client = new MongoClient(uri);
