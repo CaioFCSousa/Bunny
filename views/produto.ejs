@@ -191,17 +191,29 @@
               estrela.classList.add('estrela-selecionada');
           });
       });
-  
+      let descricaoOriginal; // Variável para armazenar a descrição original do produto
        
-      function toggleDescricao() {
+      function carregarDescricaoOriginal() {
+        const descricao = document.getElementById('descricao-produto');
+        descricaoOriginal = descricao.innerHTML;
+    }
+
+    // Função para alternar entre exibir texto completo e resumido na descrição do produto
+    function toggleDescricao() {
         const descricao = document.getElementById('descricao-produto');
         const botao = document.querySelector('.informacoes-produto button.ver-mais');
 
         if (descricao.classList.contains('expandido')) {
+            // Restaura a descrição original
+            descricao.innerHTML = descricaoOriginal;
             descricao.classList.remove('expandido');
             botao.textContent = 'Ver mais';
         } else {
-            // Substituir quebras de linha antes de expandir a descrição
+            // Armazena a descrição original se ainda não estiver armazenada
+            if (!descricaoOriginal) {
+                carregarDescricaoOriginal();
+            }
+            // Substitui quebras de linha por <br> para expandir a descrição
             descricao.innerHTML = descricao.innerHTML.replace(/\n/g, '<br>');
             descricao.classList.add('expandido');
             botao.textContent = 'Ver menos';
