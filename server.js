@@ -18,8 +18,8 @@ const app = express();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 // Substitua <caiofernandocardoso6> e <Acpsmc531@> pelos valores reais do nome de usuário e senha
-const username = encodeURIComponent("<caiofernandocardoso6>");
-const password = encodeURIComponent("<yg7B-5_L9faVdf->");
+const username = encodeURIComponent("<caiofernandocardosoff6>");
+const password = encodeURIComponent("dQpyCcwLCGCmM1JV");
 const cluster = "bunny-cluster.iy7o9mi.mongodb.net";
 const dbName = "<nome-do-banco-de-dados>";
 const collName = "<nome-da-colecao>";
@@ -37,7 +37,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
+    // Connect the client to the server	(optional starting in v4.7)dQpyCcwLCGCmM1JV
     await client.connect();
     console.log("Connected to MongoDB!");
 
