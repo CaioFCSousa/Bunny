@@ -16,17 +16,10 @@ const authRoutes = require('./routes/authRoutes');
 const app = express();
 const { MongoClient } = require("mongodb");
 
-// Configurações para conexão com o MongoDB
-const username = encodeURIComponent("caiofernandocardoso6");
-const password = encodeURIComponent("BaGHeEtMlFePRs6B");
-const cluster = "cluster0";
-const dbName = "site"; // Substitua pelo nome do seu banco de dados
-const collName = ""; // Substitua pelo nome da sua coleção
-const authSource = "admin"; // Ou outro banco de dados de autenticação se aplicável
-const authMechanism = "SCRAM-SHA-1"; // Seu mecanismo de autenticação, geralmente SCRAM-SHA-1 ou SCRAM-SHA-256
+const dbName = "<site>";
+const collName = "<comentarios>";
 
-// URL de conexão com o MongoDB
-const uri = `mongodb+srv://<caiofernandocardoso6>:<BaGHeEtMlFePRs6B>@cluster0.axatgck.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const uri = `mongodb+srv://caiofernandocardoso6:BaGHeEtMlFePRs6B@cluster0.axatgck.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 // Cliente MongoDB
 const client = new MongoClient(uri);
@@ -47,8 +40,6 @@ async function run() {
     await client.close();
   }
 }
-
-run().catch(console.dir);
 
 
 app.set('view engine', 'ejs');
