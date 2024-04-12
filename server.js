@@ -15,9 +15,29 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://caiofernandocardoso6:<Acpsmc531@>@bunny-cluster.iy7o9mi.mongodb.net/?retryWrites=true&w=majority&appName=bunny-cluster', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Conexão com MongoDB estabelecida'))
-    .catch(err => console.error('Erro ao conectar ao MongoDB:', err));
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://caiofernandocardoso6:<Acpsmc531@>@bunny-cluster.iy7o9mi.mongodb.net/?retryWrites=true&w=majority&appName=bunny-cluster";
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
