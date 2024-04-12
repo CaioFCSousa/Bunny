@@ -49,6 +49,7 @@
 #form-enviar-avaliacao{
     display: flex;
     background-color: #ffffff;
+    border: 2px solid #e4d01e;
     border-radius: 10px;
     gap: 10px;
     width: 370px;
@@ -57,6 +58,10 @@
 }
 #form-enviar-avaliacao label{
     color: #000000;
+}
+#comentario{
+    padding: 10px;
+    font-family: "Josefin Sans", sans-serif;
 }
 .area-avaliacao{
     display: flex;
@@ -72,6 +77,8 @@
 }
 #input-nome input{
     width: 252px;
+    padding: 2px;
+    font-family: "Josefin Sans", sans-serif;
 }
 #nota-avaliacao{
     display: flex;
@@ -85,10 +92,12 @@
 }
 .btn_enviar{
     margin: 20px;
-    border: 2px solid #ff0000;
-    border-radius: 20px;
+    border-radius: 5px;
     background-color: #e7d212;
+    padding: 2px;
     font-size: 1.1em;
+    font-family: "Josefin Sans", sans-serif;
+    transition: ease 0.5s;
 }
 .btn_enviar:hover{
     transform: scale(0.9);
@@ -124,7 +133,8 @@
     width: 70px;
 }
 .h2-txt-avaliacao{
-    color: #ff0000;
+    color: #e7d212;
+    text-shadow: 1px 1px 0px black;
     padding: 10px;
 }
 #comentario-text{

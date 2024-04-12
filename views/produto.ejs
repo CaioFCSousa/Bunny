@@ -60,7 +60,7 @@
         <div class="informacoes-produto">
             <h2 id="nome-produto"><%= produto.nome %></h2>
             <p id="descricao-produto" class="<%= produto.descricao.length > 500 ? 'resumido' : '' %>"><%= produto.descricao %></p>
-            <% if (produto.descricao.length > 700) { %>
+            <% if (produto.descricao.length > 400) { %>
                 <button class="ver-mais" onclick="toggleDescricao()">Ver mais</button>
             <% } %>
         </div>
