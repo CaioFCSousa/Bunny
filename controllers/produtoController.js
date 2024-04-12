@@ -18,7 +18,7 @@ exports.getAllProdutos = async (req, res) => {
 // Função para buscar um produto por ID
 exports.getProdutoById = async (req, res) => {
     try {
-        const produto = await Produto.findById(req.params.id);
+        const produto = await Produto.find().maxTimeMS(30000);
         if (!produto) {
             res.status(404).json({ message: 'Produto não encontrado' });
             return;
