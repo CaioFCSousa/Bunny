@@ -28,7 +28,7 @@ html,body{
 
 .logo-principal img{
     width: 60px;
-
+    padding: 2px;
 }
 
 .cabecalho {
@@ -84,21 +84,26 @@ html,body{
     display: none;
     position: fixed;
     flex-direction: column;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     margin-left:0px ;
     padding: 20px;
     padding-right: 100px;
-    border-right: 1px solid #37374b;
+    border-right: 4px solid white;
     height: 100%;
     background-color: #e4d01e;
     transition: ease-in-out 0.6s;
 }
 .menu-lateral-produto{
-    margin-bottom: 250px;
-    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
+
+
 }
 .conteudo-menu-lateral{
-    margin-top: 70px;
+   display: flex;
+   gap: 10px;
     
 }
 .conteudo-menu-lateral ul{
@@ -112,7 +117,7 @@ html,body{
     transition: 0.2s ease;
 }
 .menu-lateral-produto h4{
-    font-size: 1.3em;
+    font-size: 1.5em;
     text-shadow: 1px 1px 1px black;
 }
 
@@ -134,10 +139,11 @@ html,body{
 }
 .logo{
     position: fixed;
+    top: 30vh;
     margin-top: 360px;
 }
 .logo img{
-    width: 65px;
+    width: 70px;
     
 }
 
