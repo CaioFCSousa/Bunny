@@ -15,31 +15,9 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-const { MongoClient } = require('mongodb');
-
-// Substitua <username> e <password> pelos valores reais do nome de usuário e senha
-const username = encodeURIComponent("caiofernandocardoso6");
-const password = encodeURIComponent("Acpsmc531");
-const cluster = "bunny-cluster.iy7o9mi.mongodb.net";
-const dbName = "<Bunny_site>";
-
-const uri = `mongodb+srv://${username}:${password}@${cluster}/${dbName}?retryWrites=true&w=majority`;
-
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
-async function run() {
-  try {
-    await client.connect();
-    console.log("Conexão com MongoDB estabelecida");
-
-    // Se necessário, adicione aqui suas operações no banco de dados
-
-  } finally {
-    await client.close();
-  }
-}
-
-run().catch(console.dir);
+mongoose.connect('mongodb+srv://caiofernandocardoso6:<Acpsmc531@>@bunny-cluster.iy7o9mi.mongodb.net/?retryWrites=true&w=majority&appName=bunny-cluster', { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Conexão com MongoDB estabelecida'))
+    .catch(err => console.error('Erro ao conectar ao MongoDB:', err));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
