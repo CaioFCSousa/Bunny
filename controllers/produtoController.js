@@ -6,14 +6,13 @@ const Comentario = require('../models/comentarioModel');
 // Função para buscar todos os produtos
 exports.getAllProdutos = async (req, res) => {
     try {
-        const produtos = await Produto.find().maxTimeMS(30000); // Aumenta o tempo limite para 30 segundos (30000 ms)
+        const produtos = await Produto.find().maxTimeMS(30000).exec(); // Usar exec() para executar a consulta
         res.json(produtos);
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Erro ao buscar produtos' });
     }
 };
-
 
 // Função para buscar um produto por ID
 exports.getProdutoById = async (req, res) => {
