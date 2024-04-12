@@ -15,7 +15,7 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://<caiofernandocardoso6>:<BaGHeEtMlFePRs6B>@cluster0.axatgck.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://caiofernandocardoso6:<BaGHeEtMlFePRs6B>@cluster0.axatgck.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Conexão com MongoDB estabelecida'))
     .catch(err => console.error('Erro ao conectar ao MongoDB:', err));
 
