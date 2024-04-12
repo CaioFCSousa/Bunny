@@ -21,7 +21,7 @@ const { MongoClient } = require('mongodb');
 const username = encodeURIComponent("caiofernandocardoso6");
 const password = encodeURIComponent("Acpsmc531");
 const cluster = "bunny-cluster.iy7o9mi.mongodb.net";
-const dbName = "<bunny-cluster>";
+const dbName = "<Bunny_site>";
 
 const uri = `mongodb+srv://${username}:${password}@${cluster}/${dbName}?retryWrites=true&w=majority`;
 
