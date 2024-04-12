@@ -20,23 +20,28 @@ html,body{
     
     
 }
+
 /*Cabecalho*/
 .cabecalho,.menu-lateral,.conteudo-principal{
     color: #ffffff;
 }
 
 .logo-principal img{
-    width: 80px;
+    width: 60px;
 
 }
 
-.cabecalho{
+.cabecalho {
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    justify-items: end;
-    padding: 10px;
-    
+    /* justify-items: end; */
+    /* padding: 10px; */
+    background-color: #e4d01e;
+    width: 100%;
+    top: 0px;
+    border-bottom: 4px solid white;
 }
 .titulo{
     font-size: 2.6em;
@@ -60,15 +65,16 @@ html,body{
 
 .input-Pesquisa{
     display: flex;
+    margin-bottom: 2px;
     align-items: center;
     justify-items: center;
-    padding: 5px;
+
     transition: ease-out 0.5s; 
 }
 
 .input-Pesquisa input{
 
-    border-radius: 10px;
+    border-radius: 5px;
     padding:4px;
     border: 1px solid #4e4e6d;
 }
@@ -136,7 +142,7 @@ html,body{
 
 /*Conteudo PrincipL*/
 .conteudo-principal{
-    margin-top: 10px;
+    margin-top: 100px;
 }
 .h1-produto{
     margin-top: 15px;
