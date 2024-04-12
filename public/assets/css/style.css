@@ -29,6 +29,8 @@ html,body{
 .logo-principal img{
     width: 60px;
     padding: 2px;
+    
+    filter: drop-shadow(2px 2px red);
 }
 
 .cabecalho {
@@ -61,6 +63,7 @@ html,body{
     font-size: 1.3em;
     margin: 0px;
     padding: 0px;
+    text-shadow: 2px 2px red;
 }
 
 .input-Pesquisa{
@@ -68,7 +71,6 @@ html,body{
     margin-bottom: 2px;
     align-items: center;
     justify-items: center;
-
     transition: ease-out 0.5s; 
 }
 
@@ -76,7 +78,8 @@ html,body{
 
     border-radius: 5px;
     padding:4px;
-    border: 1px solid #4e4e6d;
+    box-shadow: 2px 2px red;
+    border: none;
 }
 /*Menu lateral*/
 .menu-lateral{
