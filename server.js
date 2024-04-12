@@ -15,7 +15,7 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://caiofernandocardoso6:GEI9wCGgHj4YrYqE@projeto0-bunny.lmq8ij4.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/nome-do-seu-banco-de-dados', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Conexão com MongoDB estabelecida'))
     .catch(err => console.error('Erro ao conectar ao MongoDB:', err));
 
