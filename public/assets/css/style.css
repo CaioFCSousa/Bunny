@@ -80,6 +80,7 @@ html,body{
 }
 /*Menu lateral*/
 .menu-lateral{
+    top: 60px;
     display: none;
     position: fixed;
     flex-direction: column;
