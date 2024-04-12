@@ -114,6 +114,12 @@ html,body{
     color: white;
     text-shadow: 1px 1px 1px black;
 }
+.conteudo-menu-lateral a i{
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+    text-shadow: 1px 1px 1px black;
+}
 .conteudo-menu-lateral a:hover{
     border-bottom: 1px solid #ffffff;
     width: 80px;
