@@ -19,11 +19,12 @@
             <h4>Menu</h4>
             <nav class="conteudo-menu-lateral">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="instagem.com" target="_blank">Instagram</a></li>
-                    <li><a href="#" target="_blank">Site</a></li>
-                    <li><a href="#" target="_blank">Whatszap</a></li>
+                    <li><a href="/"><i class="fa-solid fa-house" style="color: #ffffff;"></i>Home</a></li>
+                    <li><a href="https://www.instagram.com/bunny.mobile/?igsh=MWNteDN0eXFoaTZiaQ%3D%3D" target="_blank"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i>Instagram</a></li>
+                    <li><a href="https://www.bunnymobile.com.br" target="_blank"><i class="fa-solid fa-earth-americas"></i>Site</a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=+5586981870000&text=bunny.mobile" target="_blank"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a></li>
                 </ul>
+                
             </nav>
         </div>
         <div class="logo">
@@ -39,7 +40,7 @@
                 
                 <input type="text" name="pesquisa" id="pesquisa">
             </div>
-            <div class="icones" onclick="abrirPesquisa()">
+            <div class="icones">
                 <label for="pesquisa"><i  class="fa-solid fa-magnifying-glass"></i></label>
                 
             <div>
@@ -193,17 +194,19 @@
   
        
       function toggleDescricao() {
-          const descricao = document.getElementById('descricao-produto');
-          const botao = document.querySelector('.informacoes-produto button.ver-mais');
-  
-          if (descricao.classList.contains('expandido')) {
-              descricao.classList.remove('expandido');
-              botao.textContent = 'Ver mais';
-          } else {
-              descricao.classList.add('expandido');
-              botao.textContent = 'Ver menos';
-          }
-      }
+        const descricao = document.getElementById('descricao-produto');
+        const botao = document.querySelector('.informacoes-produto button.ver-mais');
+
+        if (descricao.classList.contains('expandido')) {
+            descricao.classList.remove('expandido');
+            botao.textContent = 'Ver mais';
+        } else {
+            // Substituir quebras de linha antes de expandir a descrição
+            descricao.innerHTML = descricao.innerHTML.replace(/\n/g, '<br>');
+            descricao.classList.add('expandido');
+            botao.textContent = 'Ver menos';
+        }
+    }
   
   // Função para alternar entre exibir texto completo e resumido nos comentários
       function toggleComentario(botao) {
