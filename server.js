@@ -63,7 +63,7 @@ app.get('/produto/:id/comentarios', authMiddleware, (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'product_comments.html'));
 });
 
-const PORT = process.env.PORT || 3300;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
