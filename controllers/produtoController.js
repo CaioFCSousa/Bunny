@@ -6,7 +6,7 @@ const Comentario = require('../models/comentarioModel');
 // Função para buscar todos os produtos
 exports.getAllProdutos = async (req, res) => {
     try {
-        const produtos = await Produto.find();
+        const produtos = await Produto.find().maxTimeMS(30000); // Aumenta o tempo limite para 30 segundos (30000 ms)
         res.json(produtos);
     } catch (err) {
         console.error(err);
