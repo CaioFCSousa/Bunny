@@ -15,10 +15,26 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://caiofernandocardoso6:<BaGHeEtMlFePRs6B>@cluster0.axatgck.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Conexão com MongoDB estabelecida'))
-    .catch(err => console.error('Erro ao conectar ao MongoDB:', err));
-
+const username = encodeURIComponent("<caiofernandocardoso6>");
+const password = encodeURIComponent("<BaGHeEtMlFePRs6B>");
+const cluster = "<cluster0>";
+const authSource = "<authSource>";
+const authMechanism = "<authMechanism>";
+let uri =
+  `mongodb+srv://${username}:${password}@${cluster}/?authSource=${authSource}&authMechanism=${authMechanism}`;
+const client = new MongoClient(uri);
+async function run() {
+  try {
+    await client.connect();
+    const database = client.db("<dbName>");
+    const ratings = database.collection("<collName>");
+    const cursor = ratings.find();
+    await cursor.forEach(doc => console.dir(doc));
+  } finally {
+    await client.close();
+  }
+}
+run().catch(console.dir);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
