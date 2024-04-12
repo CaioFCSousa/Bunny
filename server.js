@@ -15,25 +15,23 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://caiofernandocardoso6:<Acpsmc531@>@bunny-cluster.iy7o9mi.mongodb.net/<bunny-cluster>?retryWrites=true&w=majority&appName=bunny-cluster";
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+const { MongoClient } = require("mongodb");
+const username = encodeURIComponent("<caiofernandocardoso6>");
+const password = encodeURIComponent("<Acpsmc531>");
+const cluster = "<bunny-cluster.iy7o9mi.mongodb.net>";
+const authSource = "<retryWrites=true>";
+const authMechanism = "<w=majority&appName=bunny-cluster>";
+let uri =
+  `mongodb+srv://${username}:${password}@${cluster}/?authSource=${authSource}&authMechanism=${authMechanism}`;
+const client = new MongoClient(uri);
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    const database = client.db("<dbName>");
+    const ratings = database.collection("<collName>");
+    const cursor = ratings.find();
+    await cursor.forEach(doc => console.dir(doc));
   } finally {
-    // Ensures that the client will close when you finish/error
     await client.close();
   }
 }
