@@ -19,7 +19,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 // Substitua <caiofernandocardoso6> e <Acpsmc531@> pelos valores reais do nome de usuário e senha
 const username = encodeURIComponent("<caiofernandocardoso6>");
-const password = encodeURIComponent("<Acpsmc531@>");
+const password = encodeURIComponent("<Acpsmc531%40>");
 const cluster = "bunny-cluster.iy7o9mi.mongodb.net";
 const dbName = "<nome-do-banco-de-dados>";
 const collName = "<nome-da-colecao>";
