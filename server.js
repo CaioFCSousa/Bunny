@@ -40,9 +40,7 @@ app.use('/api/produtos', produtoRoutes);
 app.use('/api/comentarios', comentarioRoutes);
 app.use('/auth', authRoutes);
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'index.ejs'));
-});
+
 // Página de login
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'login.html'));

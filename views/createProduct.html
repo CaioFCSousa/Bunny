@@ -137,12 +137,38 @@
             document.getElementById('edit-imagem1').value = produto.imagem1;
             document.getElementById('edit-imagem2').value = produto.imagem2;
             document.getElementById('edit-id').value = produto._id;
-            document.getElementById('form-editar-produto').style.display = 'block';
+            document.getElementById('form-editar-produto').style.display = 'block'; // Mostra o formulário de edição
         }
-    
+
+        // Função para cancelar a edição e ocultar o formulário de edição
         function cancelarEdicao() {
-            document.getElementById('form-editar-produto').style.display = 'none';
+            document.getElementById('form-editar-produto').style.display = 'none'; // Oculta o formulário de edição
         }
+
+        // Função para enviar o formulário de edição
+        document.getElementById('form-editar').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const id = document.getElementById('edit-id').value;
+            const nome = document.getElementById('edit-nome').value;
+            const descricao = document.getElementById('edit-descricao').value;
+            const imagem1 = document.getElementById('edit-imagem1').value;
+            const imagem2 = document.getElementById('edit-imagem2').value;
+
+            try {
+                const response = await axios.put(`/api/produtos/${id}`, {
+                    nome: nome,
+                    descricao: descricao,
+                    imagem1: imagem1,
+                    imagem2: imagem2
+                });
+                alert('Produto atualizado com sucesso!');
+                carregarProdutos(); // Recarregar a lista de produtos após atualizar um produto
+                cancelarEdicao(); // Ocultar o formulário de edição
+            } catch (error) {
+                console.error('Erro ao atualizar produto:', error);
+                alert('Erro ao atualizar produto. Verifique o console para mais detalhes.');
+            }
+        });
     
         function gerarEbaixarQRCode(url) {
             const qrcode = new QRCode(document.createElement('div'), {
