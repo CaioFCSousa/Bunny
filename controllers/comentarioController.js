@@ -2,15 +2,15 @@
 const Comentario = require('../models/comentarioModel');
 
 // Função para listar todos os comentários
-async function getAllComments(req, res) {
+exports.getAllProdutos = async (req, res) => {
     try {
-        // Encontrar todos os comentários no banco de dados
-        const comentarios = await Comentario.find();
-        res.json(comentarios);
-    } catch (error) {
-        res.status(500).json({ error: 'Erro ao buscar comentários no banco de dados' });
+        const produtos = await Produto.find().maxTimeMS(30000).exec(); // Usar exec() para executar a consulta
+        res.json(produtos);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Erro ao buscar produtos' });
     }
-}
+};
 
 // Função para adicionar um novo comentário
 async function addComment(req, res) {
