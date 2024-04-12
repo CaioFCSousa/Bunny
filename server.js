@@ -16,7 +16,7 @@ const authRoutes = require('./routes/authRoutes');
 const app = express();
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://caiofernandocardoso6:<acpsmc531>@bunny-cluster.iy7o9mi.mongodb.net/";
+const uri = "mongodb+srv://caiofernandocardoso6:<Acpsmc531@>@bunny-cluster.iy7o9mi.mongodb.net/";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
