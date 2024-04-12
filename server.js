@@ -26,7 +26,7 @@ const authSource = "admin"; // Ou outro banco de dados de autenticação se apli
 const authMechanism = "SCRAM-SHA-1"; // Seu mecanismo de autenticação, geralmente SCRAM-SHA-1 ou SCRAM-SHA-256
 
 // URL de conexão com o MongoDB
-const uri = `mongodb+srv://${username}:${password}@${cluster}.iy7o9mi.mongodb.net/${dbName}?authSource=${authSource}&authMechanism=${authMechanism}`;
+const uri = `mongodb+srv://caiofernandocardoso6:<password>@cluster0.axatgck.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 // Cliente MongoDB
 const client = new MongoClient(uri);
