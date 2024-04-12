@@ -14,7 +14,7 @@ const comentarioRoutes = require('./routes/comentariosRoutes');
 const authRoutes = require('./routes/authRoutes');
 
 const app = express();
-
+const { MongoClient } = require("mongodb");
 const username = encodeURIComponent("<caiofernandocardoso6>");
 const password = encodeURIComponent("<BaGHeEtMlFePRs6B>");
 const cluster = "<cluster0>";
