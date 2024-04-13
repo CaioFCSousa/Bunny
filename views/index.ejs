@@ -36,8 +36,8 @@
         </div>
         <nav class="cabecalho-menu">
             <div class="input-Pesquisa">
-                
-                <input type="text" name="pesquisa" id="pesquisa">
+                <input type="text" name="pesquisa" id="pesquisa" oninput="pesquisarProdutos()">
+                <ul id="resultado-pesquisa" class="resultado-pesquisa"></ul>
             </div>
             <div class="icones">
                 <label for="pesquisa"><i  class="fa-solid fa-magnifying-glass"></i></label>
@@ -61,6 +61,7 @@
                 </div>
             <% }); %>
         </div>
+
     </main>
     <script>
         document.addEventListener('DOMContentLoaded', async function() {
@@ -78,6 +79,29 @@
                 }
             });
         });
+        function pesquisarProdutos() {
+        const termoPesquisa = document.getElementById('pesquisa').value.toLowerCase();
+        const produtos = document.querySelectorAll('.produto');
+    
+        const resultados = [];
+        produtos.forEach(produto => {
+            const nomeProduto = produto.querySelector('.nome-produto').innerText.toLowerCase();
+            if (nomeProduto.includes(termoPesquisa)) {
+                resultados.push(produto);
+            }
+        });
+
+        const resultadoPesquisa = document.getElementById('resultado-pesquisa');
+        resultadoPesquisa.innerHTML = '';
+        resultados.forEach(resultado => {
+            resultadoPesquisa.innerHTML += `<li><a href="${resultado.querySelector('a').getAttribute('href')}">${resultado.querySelector('.nome-produto').innerText}</a></li>`;
+        });
+
+        if (termoPesquisa === '') {
+            resultadoPesquisa.innerHTML = '';
+        }
+    }
+   
     </script>
 </body>
 

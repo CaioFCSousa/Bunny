@@ -26,5 +26,12 @@ router.put('/:id', produtoController.updateProduct);
 // Rota para excluir um produto
 router.delete('/:id', produtoController.deleteProduct);
 router.get('/:id/media-notas', produtoController.calcularMediaNotasProduto);
-
+app.get('/api/produtos', async (req, res) => {
+    try {
+        const produtos = await Produto.find();
+        res.json(produtos);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 module.exports = router;

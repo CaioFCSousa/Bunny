@@ -37,12 +37,11 @@
         </div>
         <nav class="cabecalho-menu">
             <div class="input-Pesquisa">
-                
-                <input type="text" name="pesquisa" id="pesquisa">
+                <input type="text" name="pesquisa" id="pesquisa" oninput="pesquisarProdutos()">
+                <ul id="resultado-pesquisa" class="resultado-pesquisa"></ul>
             </div>
             <div class="icones">
                 <label for="pesquisa"><i  class="fa-solid fa-magnifying-glass"></i></label>
-                
             <div>
         </nav>
     </header>
@@ -115,8 +114,10 @@
                     <p>Nenhuma avaliação disponível.</p>
                 <% } %>
             </div>
+            
     </main>
-    <script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script> 
         document.getElementById('form-enviar-avaliacao').addEventListener('submit', async function(event) {
           event.preventDefault();
   
@@ -164,6 +165,7 @@
           } catch (error) {
               console.error('Erro ao enviar avaliação:', error);
           }
+          
       });
   
       const estrelas = document.querySelectorAll('.estrela');
@@ -175,7 +177,7 @@
               estrelas.forEach(outraEstrela => {
                 const outraEstrelaValor = parseInt(outraEstrela.getAttribute('data-valor'));
                 if (outraEstrelaValor <= valor) {
-                    outraEstrela.setAttribute('src', "/assets/img/avaliacao1.png"); // Estrela preenchida
+                    outraEstrela.setAttribute('src', "/assets/img/avaliação1.png"); // Estrela preenchida
                 } else {
                     outraEstrela.setAttribute('src', "/assets/img/semAvaliacao.png"); // Estrela vazia
                 }
@@ -247,9 +249,34 @@
               comentario.classList.add('resumido');
           }
       });
+
+      async function pesquisarProdutos() {
+    try {
+        const termoPesquisa = document.getElementById('pesquisa').value.toLowerCase();
+        const response = await axios.get('/api/produtos');
+        const produtos = response.data;
+        const resultados = [];
+        produtos.forEach(produto => {
+            const nomeProduto = produto.nome.toLowerCase();
+            console.log(nomeProduto)
+            if (nomeProduto.includes(termoPesquisa)) {
+                resultados.push(produto);
+            }
+        });
+        const resultadoPesquisa = document.getElementById('resultado-pesquisa');
+        resultadoPesquisa.innerHTML = '';
+        resultados.forEach(resultado => {
+            resultadoPesquisa.innerHTML += `<li><a href="${resultado._id}">${resultado.nome}</a></li>`;
+        });
+        if (termoPesquisa === '') {
+            resultadoPesquisa.innerHTML = '';
+        }
+    } catch (error) {
+        console.error('Erro ao carregar produtos:', error);
+        alert('Erro ao carregar produtos. Verifique o console para mais detalhes.');
+    }
+}
+    
   </script>      
 </body>
 </html>
-
-
-

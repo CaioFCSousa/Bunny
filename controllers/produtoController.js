@@ -16,20 +16,21 @@ exports.getAllProdutos = async (req, res) => {
 
 // Função para buscar um produto por ID
 exports.getProdutoById = async (req, res) => {
+    const produtoId = req.params.id;
+
     try {
-        const produtoId = req.params.id; // ID do produto
         const produto = await Produto.findById(produtoId);
+
         if (!produto) {
-            res.status(404).json({ message: 'Produto não encontrado' });
-            return;
+            return res.status(404).json({ error: 'Produto não encontrado.' });
         }
-        res.status(200).json(produto);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Erro ao buscar detalhes do produto' });
+
+        res.json(produto);
+    } catch (error) {
+        console.error('Erro ao buscar produto por ID:', error);
+        res.status(500).json({ error: 'Erro ao buscar produto por ID. Por favor, tente novamente mais tarde.' });
     }
 };
-
 // Função para renderizar a página do produto com os detalhes e comentários
 exports.renderProductPage = async (req, res) => {
     try {

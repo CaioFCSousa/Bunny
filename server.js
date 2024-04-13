@@ -29,6 +29,7 @@ mongoose.connect('mongodb+srv://caiofernandocardoso6:BaGHeEtMlFePRs6B@cluster0.a
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use('/produtos', produtoRoutes);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());

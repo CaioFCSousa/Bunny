@@ -234,3 +234,30 @@ html,body{
 .nome-produto{
     word-wrap:break-word;
 }
+.resultado-pesquisa {
+    position: absolute;
+    background-color: #f9f9f9;
+   border: 2px solid #e4d01e;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 176px;
+    z-index: -1;
+    border-radius: 5px;
+    top: 42px;
+ 
+}
+
+.resultado-pesquisa li {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 2px solid #e4d01e;
+}
+
+.resultado-pesquisa li a{
+   text-decoration: none;
+   color: black;
+    
+}
+.resultado-pesquisa li:hover {
+    background-color: #ddd;
+}
