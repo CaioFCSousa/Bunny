@@ -98,9 +98,9 @@
                                 <!-- Adiciona as imagens dinamicamente com base na nota da avaliação -->
                                 <% for (let i = 1; i <= 5; i++) { %>
                                     <% if (i <= comentario.nota) { %>
-                                        <img src="/assets/img/avaliação_cora.png" alt="Avaliação positiva">
+                                        <img src="/assets/img/avaliacao1.png" alt="Avaliação positiva">
                                     <% } else { %>
-                                        <img src="/assets/img/semAvaliacao.png" alt="Sem avaliação">
+                                        <img src="/public/assets/img/semAvaliacao.png" alt="Sem avaliação">
                                     <% } %>
                                 <% } %>
                             </div>
@@ -177,7 +177,7 @@
               estrelas.forEach(outraEstrela => {
                 const outraEstrelaValor = parseInt(outraEstrela.getAttribute('data-valor'));
                 if (outraEstrelaValor <= valor) {
-                    outraEstrela.setAttribute('src', "/assets/img/avaliação1.png"); // Estrela preenchida
+                    outraEstrela.setAttribute('src', "/assets/img/avaliacao1.png"); // Estrela preenchida
                 } else {
                     outraEstrela.setAttribute('src', "/assets/img/semAvaliacao.png"); // Estrela vazia
                 }
